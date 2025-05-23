@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Singer Slider</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #D2D2D2;
+      background-image:
+        repeating-linear-gradient(to right, transparent 0 100px, #25283b22 100px 101px),
+        repeating-linear-gradient(to bottom, transparent 0 100px, #25283b22 100px 101px);
+    }
+
+    body::before {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      content: '';
+      background-image: url(https://wallpapercave.com/wp/wp6262702.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="slider" style="--quantity: 10">
+      <div class="item" style="--position: 1" data-song="songs/starboy.mp3">
+        <img src="https://i.pinimg.com/736x/0c/c2/15/0cc21515f347987f621aebe54cea531e.jpg" alt="Singer 1" />
+      </div>
+      <div class="item" style="--position: 2" data-song="songs/Thats So True.mp3">
+        <img src="https://i.pinimg.com/736x/36/6c/80/366c80f1518e8daaf91eb287880d4a3a.jpg" alt="Singer 2" />
+      </div>
+      <div class="item" style="--position: 3" data-song="songs/summertime sadness.mp3">
+        <img src="https://i.pinimg.com/736x/f7/e6/1c/f7e61c38557801d73ff9367735f4433e.jpg" alt="Singer 3" />
+      </div>
+      <div class="item" style="--position: 4" data-song="songs/birds of a feather.mp3">
+        <img src="https://i.pinimg.com/736x/44/25/ab/4425ab9dbb66efd327e2db243df251bb.jpg" alt="Singer 4" />
+      </div>
+      <div class="item" style="--position: 5" data-song="songs/fein.mp3">
+        <img src="https://i.pinimg.com/736x/1b/32/25/1b32258d2345a39d9de3206876362501.jpg" alt="Singer 5" />
+      </div>
+      <div class="item" style="--position: 6" data-song="songs/Espresso.mp3">
+        <img src="https://i.pinimg.com/736x/5a/2f/62/5a2f6202195fb163160c0ddc09610478.jpg" alt="Singer 6" />
+      </div>
+      <div class="item" style="--position: 7" data-song="songs/rockabye.mp3">
+        <img src="https://i.pinimg.com/736x/b1/f7/f4/b1f7f4a0dba2dec70581d1862e468718.jpg" alt="Singer 7" />
+      </div>
+      <div class="item" style="--position: 8" data-song="songs/hope.mp3">
+        <img src="https://i.pinimg.com/736x/80/39/07/803907cbaa5204be0db99903e5abe6ce.jpg" alt="Singer 8" />
+      </div>
+      <div class="item" style="--position: 9" data-song="songs/LISA - ROCKSTAR .mp3">
+        <img src="https://i.pinimg.com/736x/55/87/b3/5587b34b553ddfde5e5492cef2d568af.jpg" alt="Singer 9" />
+      </div>
+      <div class="item" style="--position: 10" data-song="songs/like JENNIE .mp3">
+        <img src="https://i.pinimg.com/736x/0e/9d/5b/0e9d5bd238ad221d00ef912c79183b71.jpg" alt="Singer 10" />
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="model">
+        <img src="spotify.gif" alt="Animated Model" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden audio player -->
+  <audio id="player" controls style="display: none;"></audio>
+
+  <script>
+    const items = document.querySelectorAll(".item");
+    const player = document.getElementById("player");
+
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        const song = item.getAttribute("data-song");
+        if (song) {
+          player.src = song;
+          player.play();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
